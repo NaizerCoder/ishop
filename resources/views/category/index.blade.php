@@ -32,7 +32,7 @@
                         <tbody>
                         <tr>
                             <td>{{$category->title}}</td>
-                            <td>Редактировать | Удалить</td>
+                            <td> <a href="{{route('category.edit',$category->id)}}">Редактировать</a> | <a href="{{route('category.delete',$category->id)}}">Удалить</a></td>
                         </tr>
                         </tbody>
                     @endforeach

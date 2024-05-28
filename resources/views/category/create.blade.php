@@ -22,7 +22,16 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                Контент Категории
+                <form action="{{route('category.store')}}" method="POST" class="w-25">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control" name="title" placeholder="Название категории">
+                    </div>
+                    @error('title')
+                    <div class="text-danger mb-3">{{ $message }}</div>
+                    @enderror
+                    <button type="submit" class="btn btn-success">Добавить</button>
+                </form>
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
