@@ -31,7 +31,7 @@
                     @foreach($categories as $category)
                         <tbody>
                         <tr>
-                            <td>{{$category->title}}</td>
+                            <td><a href="{{route('category.show',$category->id)}}">{{$category->title}}</a></td>
                             <td> <a href="{{route('category.edit',$category->id)}}">Редактировать</a> | <a href="{{route('category.delete',$category->id)}}">Удалить</a></td>
                         </tr>
                         </tbody>

@@ -1,7 +1,5 @@
 @extends('layouts.main')
 @section('content')
-    @extends('layouts.main')
-    @section('content')
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -19,17 +17,21 @@
         </div>
         <!-- /.content-header -->
 
+{{--        @dd($category->title)--}}
+
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <form action="{{route('category.update',$category->id)}}" method="PATCH" class="w-25">
+                    <form action="{{route('category.update',$category->id)}}" method="POST" class="w-25">
                         @csrf
                         @method('patch')
+
                         <div class="form-group mb-3">
                             <input type="text" class="form-control" name="title" value="{{old('title',$category->title)}}">
                         </div>
+
                         @error('title')
                         <div class="text-danger mb-3">{{ $message }}</div>
                         @enderror
@@ -39,8 +41,5 @@
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </section>
-
-    @endsection
-
 @endsection
 
