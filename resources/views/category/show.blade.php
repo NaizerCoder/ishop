@@ -11,7 +11,9 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Категория: такая-то</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('main.index')}}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('category.index')}}">Категории</a></li>
+                            <li class="breadcrumb-item active">Просмотр категории</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->

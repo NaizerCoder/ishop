@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', IndexController::class);
-Route::get('/admin', \App\Http\Controllers\main\IndexController::class);
+Route::get('/admin', \App\Http\Controllers\main\IndexController::class)->name('main.index');
 
 /*CATEGORY*/
 Route::group(['namespace'=>'App\Http\Controllers\Category', 'prefix'=>'admin/categories'], function(){
@@ -30,6 +30,32 @@ Route::group(['namespace'=>'App\Http\Controllers\Category', 'prefix'=>'admin/cat
 
 });
 
+
+/*TAG*/
+Route::group(['namespace'=>'App\Http\Controllers\Tag', 'prefix'=>'admin/tags'], function(){
+
+    Route::get('/','IndexController')->name('tag.index');
+    Route::get('/create','CreateController')->name('tag.create');
+    Route::get('/show/{tag}','ShowController')->name('tag.show');
+    Route::post('/','StoreController')->name('tag.store');
+    Route::get('/{tag}/edit','EditController')->name('tag.edit');
+    Route::patch('/{tag}','UpdateController')->name('tag.update');
+    Route::delete('/{tag}','DeleteController')->name('tag.delete');
+
+});
+
+/*COLOR*/
+Route::group(['namespace'=>'App\Http\Controllers\Color', 'prefix'=>'admin/colors'], function(){
+
+    Route::get('/','IndexController')->name('color.index');
+    Route::get('/create','CreateController')->name('color.create');
+    Route::get('/show/{color}','ShowController')->name('color.show');
+    Route::post('/','StoreController')->name('color.store');
+    Route::get('/{color}/edit','EditController')->name('color.edit');
+    Route::patch('/{color}','UpdateController')->name('color.update');
+    Route::delete('/{color}','DeleteController')->name('color.delete');
+
+});
 
 /*OTHER*/
 Route::fallback(function ()

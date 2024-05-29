@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Категории</h1>
+                    <h1 class="m-0">Тэги</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('main.index')}}">Главная</a></li>
-                        <li class="breadcrumb-item active">Категории</li>
+                        <li class="breadcrumb-item active">Тэги</li>
                     </ol>
                 </div><!-- /.col --><!-- /.col -->
             </div><!-- /.row -->
@@ -29,17 +29,17 @@
                     <th scope="col">Действие</th>
                 </tr>
                 </thead>
-                @foreach($categories as $category)
+                @foreach($tags as $tag)
                     <tbody>
                     <tr>
-                        <td><a href="{{route('category.show',$category->id)}}">{{$category->title}}</a></td>
+                        <td><a href="{{route('tag.show',$tag->id)}}">{{$tag->title}}</a></td>
                         <td>
                             <div class="row w-25">
                                 <div class="col">
-                                    <a href="{{route('category.edit',$category->id)}}">Редактировать</a>
+                                    <a href="{{route('tag.edit',$tag->id)}}">Редактировать</a>
                                 </div>
                                 <div class="col">
-                                    <form action="{{route('category.delete',$category->id)}}" method="POST"
+                                    <form action="{{route('tag.delete',$tag->id)}}" method="POST"
                                           class="w-25">
                                         @csrf
                                         @method('delete')
@@ -53,7 +53,7 @@
                 @endforeach
             </table>
 
-            <a href="{{route('category.create')}}" class="btn btn-success" style="width:auto;">Создать</a>
+            <a href="{{route('tag.create')}}" class="btn btn-success" style="width:auto;">Создать</a>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>

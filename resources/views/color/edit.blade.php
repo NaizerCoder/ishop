@@ -5,13 +5,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Редактировать категорию</h1>
+                        <h1 class="m-0">Редактировать цвет</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('main.index')}}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('category.index')}}">Категории</a></li>
-                            <li class="breadcrumb-item active">Редактирование категории</li>
+                            <li class="breadcrumb-item"><a href="{{route('color.index')}}">Цвета</a></li>
+                            <li class="breadcrumb-item active">Редактирование цвета</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -19,22 +19,20 @@
         </div>
         <!-- /.content-header -->
 
-{{--        @dd($category->title)--}}
-
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <form action="{{route('category.update',$category->id)}}" method="POST" class="w-25">
+                    <form action="{{route('color.update',$color->id)}}" method="POST" class="w-25">
                         @csrf
                         @method('patch')
 
                         <div class="form-group mb-3">
-                            <input type="text" class="form-control" name="title" value="{{old('title',$category->title)}}">
+                            <input type="text" class="form-control" name="color" value="{{old('color',$color->color)}}">
                         </div>
 
-                        @error('title')
+                        @error('color')
                         <div class="text-danger mb-3">{{ $message }}</div>
                         @enderror
                         <button type="submit" class="btn btn-success">Обновить</button>
