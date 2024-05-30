@@ -57,6 +57,19 @@ Route::group(['namespace'=>'App\Http\Controllers\Color', 'prefix'=>'admin/colors
 
 });
 
+/*USER*/
+Route::group(['namespace'=>'App\Http\Controllers\User', 'prefix'=>'admin/users'], function(){
+
+    Route::get('/','IndexController')->name('user.index');
+    Route::get('/create','CreateController')->name('user.create');
+    Route::get('/show/{user}','ShowController')->name('user.show');
+    Route::post('/','StoreController')->name('user.store');
+    Route::get('/{user}/edit','EditController')->name('user.edit');
+    Route::patch('/{user}','UpdateController')->name('user.update');
+    Route::delete('/{user}','DeleteController')->name('user.delete');
+
+});
+
 /*OTHER*/
 Route::fallback(function ()
 {

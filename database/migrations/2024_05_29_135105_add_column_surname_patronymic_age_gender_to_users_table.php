@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('patronymic')->nullable()->after('surname');
             $table->integer('age')->nullable()->after('patronymic');
             $table->unsignedSmallInteger('gender')->nullable()->after('age');
+            $table->string('address')->nullable()->after('gender');
         });
     }
 
@@ -29,6 +30,7 @@ return new class extends Migration
             $table->dropColumn('patronymic');
             $table->dropColumn('age');
             $table->dropColumn('gender');
+            $table->dropColumn('address');
         });
     }
 };
