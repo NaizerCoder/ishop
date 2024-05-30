@@ -15,15 +15,14 @@ class User extends Authenticatable
     CONST MALE = 1;
     CONST FEMALE = 2;
 
-    static function getGenders(){
-        return [
-            self::MALE => 'Мужской',
-            self::FEMALE => 'Женский',
-        ];
-    }
+    CONST GET_GENDER = [
+        1 => 'Мужской',
+        2 => 'Женский',
+    ];
+
     public function getGenderTitleAttribute(){
 
-        return self::getGenders()[$this->gender];
+        return self::GET_GENDER[$this->gender];
     }
 
     /**
