@@ -16,16 +16,14 @@ return new class extends Migration
 
             $table->string('title');
             $table->text('content');
-            $table->text('description');
-            $table->string('image');
-            $table->string('preview_image');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('preview_image')->nullable();
             $table->integer('price');
             $table->integer('count');
             $table->boolean('is_publish')->default(true);
 
-            $table->foreignId('user_id')->nullable()->index()->constrained('users');
             $table->foreignId('category_id')->nullable()->index()->constrained('categories');
-
 
             $table->timestamps();
         });

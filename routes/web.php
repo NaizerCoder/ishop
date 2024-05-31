@@ -70,6 +70,19 @@ Route::group(['namespace'=>'App\Http\Controllers\User', 'prefix'=>'admin/users']
 
 });
 
+/*PRODUCT*/
+Route::group(['namespace'=>'App\Http\Controllers\Product', 'prefix'=>'admin/products'], function(){
+
+    Route::get('/','IndexController')->name('product.index');
+    Route::get('/create','CreateController')->name('product.create');
+    Route::get('/show/{product}','ShowController')->name('product.show');
+    Route::post('/','StoreController')->name('product.store');
+    Route::get('/{product}/edit','EditController')->name('product.edit');
+    Route::patch('/{product}','UpdateController')->name('product.update');
+    Route::delete('/{product}','DeleteController')->name('product.delete');
+
+});
+
 /*OTHER*/
 Route::fallback(function ()
 {

@@ -7,6 +7,7 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="{{asset('adminpanel/plugins/select2/css/select2.min.css')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('adminpanel/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
@@ -165,7 +166,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('product.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-shopping-cart"></i>
                             <p>
                                 Продукты
@@ -230,6 +231,13 @@
 <script src="{{asset('adminpanel/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('adminpanel/dist/js/adminlte.js')}}"></script>
+
+<script src="{{asset('adminpanel/plugins/select2/js/select2.full.min.js')}}"></script>
+
+<script>
+    $('.tags').select2()
+    $('.colors').select2()
+</script>
 
 
 </body>
