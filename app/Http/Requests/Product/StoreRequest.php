@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'description' => '',
             'price' => 'required|integer',
             'count' => 'required|string',
+            'category_id' => '',
             'tags' => '',
             'colors' => '',
         ];
@@ -38,7 +39,6 @@ class StoreRequest extends FormRequest
             'content.required' => 'необходимо заполнить поле',
             'price.required' => 'необходимо заполнить поле',
             'count.required' => 'необходимо заполнить поле',
-
         ];
     }
 

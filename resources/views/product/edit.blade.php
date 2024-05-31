@@ -69,7 +69,35 @@
                     <div class="text-danger mb-3">{{ $message }}</div>
                     @enderror
 
-                    <button type="submit" class="btn btn-success">Добавить</button>
+                    <!-- select Category -->
+                    <div class="form-group">
+                        <select class="form-control" name="category_id">
+                            <option disabled selected>Категория</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}"
+                                    {{--когда отношения один ко многим -> обращение к одной категории--}}
+                                    {{ $category->id == old('category_id',$product->category_id) ? "selected" : "" }}
+                                > {{ $category->title }}
+
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <!-- MultiSelect Tags -->
+                    <div class="form-group mb-3">
+                        <select class="tags" name="tags[]" multiple="multiple" data-placeholder="Задайте тэг"
+                                style="width: 100%;">
+                            @foreach($tags as $tag)
+                                <option value="{{$tag->id}}"
+                                    {{--когда отношения многие ко многим -> обращение к массиву--}}
+                                    {{ in_array( $tag->id , old('tags',$product->tags->pluck('id')->toArray()) )  ? ' selected' : '' }}
+                                >{{$tag->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Обновить</button>
                     </form>
                 </div>
             </div>

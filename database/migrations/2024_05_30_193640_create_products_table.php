@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('count');
             $table->boolean('is_publish')->default(true);
 
-            $table->foreignId('category_id')->nullable()->index()->constrained('categories');
+            $table->foreignId('category_id')->nullable()->index()->constrained('categories')->onDelete('CASCADE');
 
             $table->timestamps();
         });

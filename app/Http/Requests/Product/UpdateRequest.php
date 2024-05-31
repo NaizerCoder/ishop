@@ -27,6 +27,9 @@ class UpdateRequest extends FormRequest
             'description' => '',
             'price' => 'required|integer',
             'count' => 'required|string',
+            'category_id' => '',
+            'tags' => '',
+            'colors' => '',
         ];
     }
 

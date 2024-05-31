@@ -68,17 +68,18 @@
                         @enderror
 
                         <!-- select Category -->
-{{--                        <div class="form-group">--}}
-{{--                            <select class="form-control" name="category_id">--}}
-{{--                                <option disabled selected>Категория</option>--}}
-{{--                                @foreach($categories as $category)--}}
-{{--                                    <option value="{{$category->id}}"--}}
-{{--                                        {{ $category->id == old('category_id') ? ' selected' : "" }}--}}
-{{--                                    > {{ $category->title }}</option>--}}
-{{--                                @endforeach--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
+                        <div class="form-group">
+                            <select class="form-control" name="category_id">
+                                <option disabled selected>Категория</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}"
+                                        {{ $category->id == old('category_id') ? ' selected' : "" }}
+                                    > {{ $category->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
+                        <!-- MultiSelect Tags -->
                         <div class="form-group mb-3">
                             <select class="tags" name="tags[]" multiple="multiple" data-placeholder="Задайте тэг"
                                     style="width: 100%;">
@@ -90,6 +91,7 @@
                             </select>
                         </div>
 
+                        <!-- MultiSelect Colors -->
                         <div class="form-group mb-3">
                             <select class="tags" name="colors[]" multiple="multiple" data-placeholder="Задайте цвет"
                                     style="width: 100%;">
