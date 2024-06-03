@@ -81,7 +81,14 @@ Route::group(['namespace'=>'App\Http\Controllers\Product', 'prefix'=>'admin/prod
     Route::patch('/{product}','UpdateController')->name('product.update');
     Route::delete('/{product}','DeleteController')->name('product.delete');
 
+    /*IMAGES*/
+    Route::group(['namespace'=>'Image', 'prefix' => '{image}'], function(){
+        Route::delete('/image','DestroyController')->name('product.image.delete');
+    });
+
+
 });
+
 
 /*OTHER*/
 Route::fallback(function ()

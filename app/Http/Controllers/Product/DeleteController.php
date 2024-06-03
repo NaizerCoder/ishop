@@ -9,6 +9,7 @@ class DeleteController extends Controller
 {
     public function __invoke(Product $product)
     {
+        dd('DELETE PRODUCT');
         $product->delete();
         return redirect()->route('product.index');
     }

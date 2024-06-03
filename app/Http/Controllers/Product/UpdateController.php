@@ -18,9 +18,25 @@ class UpdateController extends Controller
             unset($data['tags']);
         } else $tags = [];
 
+        if (isset($data['colors'])) {
+
+            $colors = $data['colors'];
+            unset($data['colors']);
+        } else $colors = [];
+
+        if (isset($data['images'])) {
+
+            $dataImages = $data['images'];
+            unset($data['images']);
+        }
+
         $product->update($data);
         $product->tags()->sync($tags); //ещё есть detach
+        $product->colors()->sync($colors);
+
+        /*IMAGES*/
 
         return redirect()->route('product.index');
+
     }
 }

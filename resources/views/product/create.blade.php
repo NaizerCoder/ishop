@@ -25,7 +25,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div style="width:400px;">
-                    <form action="{{route('product.store')}}" method="POST">
+                    <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
                             <input type="text" class="form-control" name="title" placeholder="Наименование"
@@ -104,6 +104,22 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        <!-- Images -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="images[]" multiple>
+                                    <label class="custom-file-label" for="exampleInputFile">Выбрать файл</label>
+                                </div>
+                                <div class="input-group-append">
+
+                                </div>
+                            </div>
+                        </div>
+                        @error('images')
+                        <div class="text-danger mb-3">{{ $message }}</div>
+                        @enderror
 
                         <button type="submit" class="btn btn-success">Добавить</button>
 

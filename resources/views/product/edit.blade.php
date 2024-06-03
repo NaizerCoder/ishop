@@ -25,8 +25,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div style="width:400px;">
-                    <form action="{{route('product.update',$product->id)}}" method="POST"
-                    ">
+                    <form action="{{route('product.update',$product->id)}}" method="POST">
                     @csrf
                     @method('patch')
                     <div class="form-group mb-3">
@@ -84,6 +83,19 @@
                         </select>
                     </div>
 
+                    <!-- MultiSelect Colors -->
+                    <div class="form-group mb-3">
+                        <select class="colors" name="colors[]" multiple="multiple" data-placeholder="Задайте тэг"
+                                style="width: 100%;">
+                            @foreach($colors as $color)
+                                <option value="{{$color->id}}"
+                                    {{--когда отношения многие ко многим -> обращение к массиву--}}
+                                    {{ in_array( $color->id , old('colors',$product->colors->pluck('id')->toArray()) )  ? ' selected' : '' }}
+                                >{{$color->color}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <!-- MultiSelect Tags -->
                     <div class="form-group mb-3">
                         <select class="tags" name="tags[]" multiple="multiple" data-placeholder="Задайте тэг"
@@ -95,6 +107,34 @@
                                 >{{$tag->title}}</option>
                             @endforeach
                         </select>
+                    </div>
+
+                    <!-- Images -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="images[]" multiple>
+                                <label class="custom-file-label" for="exampleInputFile">Выбрать файл</label>
+                            </div>
+                            <div class="input-group-append">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="h4">Загруженные изображения</div>
+                    <div class="row form-group mb-3">
+
+                        @foreach($images as $image)
+                            <div class="col w-25 mb-2">
+                                <a href="{{ $image->url  }} " target="__blank"><img src="{{ $image->url  }}" alt="preview" class="w-100"></a>
+                                <form action="{{route('product.image.delete',$image->id)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="border-0 bg-transparent text-danger">Удалить</button>
+                                </form>
+                            </div>
+                        @endforeach
                     </div>
 
                     <button type="submit" class="btn btn-success">Обновить</button>

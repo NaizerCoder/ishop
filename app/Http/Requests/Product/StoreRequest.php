@@ -30,6 +30,7 @@ class StoreRequest extends FormRequest
             'category_id' => '',
             'tags' => '',
             'colors' => '',
+            'images' => 'array',
         ];
     }
     public function messages()
@@ -39,6 +40,7 @@ class StoreRequest extends FormRequest
             'content.required' => 'необходимо заполнить поле',
             'price.required' => 'необходимо заполнить поле',
             'count.required' => 'необходимо заполнить поле',
+            'images.array' => 'ошибка загрузки файлов',
         ];
     }
 

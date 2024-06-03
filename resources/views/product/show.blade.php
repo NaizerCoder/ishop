@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('main.index')}}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('user.index')}}">Пользователи</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('product.index')}}">Продукты</a></li>
                             <li class="breadcrumb-item active">Просмотр продукта</li>
                         </ol>
                     </div><!-- /.col -->
@@ -26,28 +26,41 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" style="width:800px;">
                         <thead>
                         <tr>
-                            <th scope="col">Название</th>
-                            <th scope="col">Контент</th>
-                            <th scope="col">Описание</th>
-                            <th scope="col">Гл.изображение</th>
-                            <th scope="col">Превью</th>
-                            <th scope="col">Цена</th>
-                            <th scope="col">Кол-во</th>
-                            <th scope="col">Публикация</th>
+                            <th scope="col" style="width:300px;">#</th>
+                            <th scope="col">Содержимое</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
+                            <th>Название</th>
                             <td>{{$product->title}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Контент</th>
                             <td>{{$product->content}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Описание</th>
                             <td>{{$product->description}}</td>
-                            <td></td>
-                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>Цена</th>
                             <td>{{$product->price}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Количество</th>
                             <td>{{$product->count}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Количество</th>
                             <td>{{$product->is_publish}}</td>
                         </tr>
                         </tbody>

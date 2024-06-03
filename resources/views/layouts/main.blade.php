@@ -15,6 +15,8 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('adminpanel/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -227,6 +229,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('adminpanel/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- IMAGES LOAD -->
+<script src="{{asset('adminpanel/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('adminpanel/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
@@ -235,9 +239,17 @@
 <script src="{{asset('adminpanel/plugins/select2/js/select2.full.min.js')}}"></script>
 
 <script>
-    $('.tags').select2()
-    $('.colors').select2()
+
+    $(function () {
+        bsCustomFileInput.init();
+    });
+    $('.tags').select2();
+    $('.colors').select2();
+
 </script>
+
+
+
 
 
 </body>
