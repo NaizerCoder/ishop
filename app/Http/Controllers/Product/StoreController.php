@@ -44,7 +44,7 @@ class StoreController extends Controller
             /*IMAGES*/
             if (isset($dataImages))
 
-                foreach ($dataImages as $index => $image) {
+                foreach ($dataImages as $image) {
 
                     $name = md5(Carbon::now() . '_' . $image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
                     $pathImage = Storage::disk('public')->putFileAs('/images', new File($image), $name);

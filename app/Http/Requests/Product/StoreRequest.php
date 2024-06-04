@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             'description' => '',
             'price' => 'required|integer',
             'count' => 'required|string',
-            'category_id' => '',
+            'category_id' => 'required',
             'tags' => '',
             'colors' => '',
             'images' => 'array',
@@ -41,6 +41,7 @@ class StoreRequest extends FormRequest
             'price.required' => 'необходимо заполнить поле',
             'count.required' => 'необходимо заполнить поле',
             'images.array' => 'ошибка загрузки файлов',
+            'category_id.required' => 'необходимо присвоить категорию',
         ];
     }
 

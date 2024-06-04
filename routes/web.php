@@ -82,8 +82,8 @@ Route::group(['namespace'=>'App\Http\Controllers\Product', 'prefix'=>'admin/prod
     Route::delete('/{product}','DeleteController')->name('product.delete');
 
     /*IMAGES*/
-    Route::group(['namespace'=>'Image', 'prefix' => '{image}'], function(){
-        Route::delete('/image','DestroyController')->name('product.image.delete');
+    Route::group(['namespace'=>'Image', 'prefix'=>'image'], function(){
+        Route::get('/{image}','DeleteController')->name('image.delete');
     });
 
 

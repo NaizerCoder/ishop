@@ -78,6 +78,9 @@
                                 @endforeach
                             </select>
                         </div>
+                        @error('category_id')
+                        <div class="text-danger mb-3">{{ $message }}</div>
+                        @enderror
 
                         <!-- MultiSelect Tags -->
                         <div class="form-group mb-3">

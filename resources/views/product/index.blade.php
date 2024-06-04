@@ -26,6 +26,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Название</th>
+                    <th scope="col">Категория</th>
                     <th scope="col">Контент</th>
                     <th scope="col">Описание</th>
                     <th scope="col">Гл.изображение</th>
@@ -40,6 +41,7 @@
                     <tbody>
                     <tr>
                         <td><a href="{{route('product.show',$product->id)}}">{{$product->title}}</a></td>
+                        <td>{{$product->category->title}}</td>
                         <td>{{$product->content}}</td>
                         <td>{{$product->description}}</td>
                         <td></td>

@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\UpdateRequest;
+use App\Models\Image;
 use App\Models\Product;
+use Carbon\Carbon;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class UpdateController extends Controller
 {
@@ -31,10 +35,25 @@ class UpdateController extends Controller
         }
 
         $product->update($data);
-        $product->tags()->sync($tags); //ещё есть detach
-        $product->colors()->sync($colors);
 
         /*IMAGES*/
+        if (isset($dataImages))
+
+            foreach ($dataImages as $image) {
+
+                $name = md5(Carbon::now() . '_' . $image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
+                $pathImage = Storage::disk('public')->putFileAs('/images', new File($image), $name);
+
+                Image::create([
+
+                    'path' => $pathImage,
+                    'url' => url('/storage/' . $pathImage),
+                    'product_id' => $product->id,
+                ]);
+            }
+
+        $product->tags()->sync($tags); //ещё есть detach
+        $product->colors()->sync($colors);
 
         return redirect()->route('product.index');
 

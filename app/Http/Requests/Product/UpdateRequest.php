@@ -27,9 +27,10 @@ class UpdateRequest extends FormRequest
             'description' => '',
             'price' => 'required|integer',
             'count' => 'required|string',
-            'category_id' => '',
+            'category_id' => 'required',
             'tags' => '',
             'colors' => '',
+            'images' => 'array',
         ];
     }
 
@@ -40,7 +41,8 @@ class UpdateRequest extends FormRequest
             'content.required' => 'необходимо заполнить поле',
             'price.required' => 'необходимо заполнить поле',
             'count.required' => 'необходимо заполнить поле',
-
+            'images.array' => 'ошибка загрузки файлов',
+            'category_id.required' => 'необходимо присвоить категорию',
         ];
     }
 }

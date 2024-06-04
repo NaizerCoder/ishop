@@ -25,7 +25,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div style="width:400px;">
-                    <form action="{{route('product.update',$product->id)}}" method="POST">
+                    <form action="{{route('product.update',$product->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
                     <div class="form-group mb-3">
@@ -126,13 +126,9 @@
                     <div class="row form-group mb-3">
 
                         @foreach($images as $image)
-                            <div class="col w-25 mb-2">
-                                <a href="{{ $image->url  }} " target="__blank"><img src="{{ $image->url  }}" alt="preview" class="w-100"></a>
-                                <form action="{{route('product.image.delete',$image->id)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="border-0 bg-transparent text-danger">Удалить</button>
-                                </form>
+                            <div class="col w-25 mb-2 text-center">
+                                <a href="{{ $image->url  }} " target="__blank"><img src="{{ $image->url  }}" alt="preview" class="w-100 h-100"></a>
+                                <a href="{{route('image.delete',$image->id)}}">X</a>
                             </div>
                         @endforeach
                     </div>
