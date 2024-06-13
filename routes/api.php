@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'App\Http\Controllers\API\Product'], function(){
 	
-	Route::post('/products','IndexController');
+	Route::get('/products','IndexController');
 	
 });
