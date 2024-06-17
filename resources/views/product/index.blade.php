@@ -32,6 +32,7 @@
                     <th scope="col">Гл.изображение</th>
                     <th scope="col">Превью</th>
                     <th scope="col">Цена</th>
+                    <th scope="col">Старая цена</th>
                     <th scope="col">Кол-во</th>
                     <th scope="col">Публикация</th>
                     <th scope="col">Действие</th>
@@ -47,6 +48,7 @@
                         <td></td>
                         <td></td>
                         <td>{{$product->price}}</td>
+                        <td>{{$product->old_price}}</td>
                         <td>{{$product->count}}</td>
                         <td>{{$product->is_publish}}</td>
                         <td>

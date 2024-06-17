@@ -59,6 +59,14 @@
                         <div class="text-danger mb-3">{{ $message }}</div>
                         @enderror
 
+                        <div class="form-group mb-3" style="width:200px;">
+                            <input type="text" class="form-control" name="old_price" placeholder="Старая цена"
+                                   value="{{old('old_price')}}">
+                        </div>
+                        @error('old_price')
+                        <div class="text-danger mb-3">{{ $message }}</div>
+                        @enderror
+
                         <div class="form-group mb-3" style="width:120px;">
                             <input type="text" class="form-control" name="count" placeholder="Количество"
                                    value="{{old('count')}}">
