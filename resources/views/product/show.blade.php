@@ -50,8 +50,18 @@
                         </tr>
 
                         <tr>
+                            <th>Группа</th>
+                            <td>{{$product->group->title}}</td>
+                        </tr>
+
+                        <tr>
                             <th>Цена</th>
                             <td>{{$product->price}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Старая цена</th>
+                            <td>{{$product->old_price}}</td>
                         </tr>
 
                         <tr>

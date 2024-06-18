@@ -75,6 +75,18 @@
                         <div class="text-danger mb-3">{{ $message }}</div>
                         @enderror
 
+                        <!-- select Group -->
+                        <div class="form-group">
+                            <select class="form-control" name="group_id">
+                                <option disabled selected>Группа</option>
+                                @foreach($groups as $group)
+                                    <option value="{{$group->id}}"
+                                        {{ $group->id == old('group_id') ? ' selected' : "" }}
+                                    > {{ $group->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <!-- select Category -->
                         <div class="form-group">
                             <select class="form-control" name="category_id">

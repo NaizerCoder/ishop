@@ -30,6 +30,18 @@ Route::group(['namespace'=>'App\Http\Controllers\Category', 'prefix'=>'admin/cat
 
 });
 
+/*GROUP*/
+Route::group(['namespace'=>'App\Http\Controllers\Group', 'prefix'=>'admin/group'], function(){
+
+    Route::get('/','IndexController')->name('group.index');
+    Route::get('/create','CreateController')->name('group.create');
+    Route::get('/show/{group}','ShowController')->name('group.show');
+    Route::post('/','StoreController')->name('group.store');
+    Route::get('/{group}/edit','EditController')->name('group.edit');
+    Route::patch('/{group}','UpdateController')->name('group.update');
+    Route::delete('/{group}','DeleteController')->name('group.delete');
+
+});
 
 /*TAG*/
 Route::group(['namespace'=>'App\Http\Controllers\Tag', 'prefix'=>'admin/tags'], function(){

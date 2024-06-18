@@ -4,11 +4,10 @@ namespace App\Http\Resources\Product;
 
 use App\Http\Resources\Category\CategoryResource;
 use App\Http\Resources\Image\ImageResource;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+class SubProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,28 +16,17 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        if($this->group_id){
-
-            $products_sub_list = Product::where('group_id', $this->group_id)->get();
-            $products_sub = SubProductResource::collection($products_sub_list);
-        }
-        else
-            $products_sub = false;
-
         return [
             'id' => $this->id,
             'title' => $this->title,
             'content' => $this->content,
             'description' => $this->description,
-           // 'image' => ImageResource::collection($this->images)->first(),
             'image' => ImageResource::collection($this->images),
             'price' => $this->price,
             'old_price' => $this->old_price,
             'count' => $this->count,
             'is_publish' => $this->is_publish,
             'category' => new CategoryResource($this->category),
-            'product_sub' => $products_sub,
-
         ];
     }
 }
