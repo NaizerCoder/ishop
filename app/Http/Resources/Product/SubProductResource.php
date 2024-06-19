@@ -21,7 +21,7 @@ class SubProductResource extends JsonResource
             'title' => $this->title,
             'content' => $this->content,
             'description' => $this->description,
-            'image' => ImageResource::collection($this->images),
+            'image' => ImageResource::collection($this->images)->first(),
             'price' => $this->price,
             'old_price' => $this->old_price,
             'count' => $this->count,
