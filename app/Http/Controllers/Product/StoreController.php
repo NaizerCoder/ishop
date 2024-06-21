@@ -70,7 +70,7 @@ class StoreController extends Controller
         } catch (\Exception $exception) {
 
             DB::rollBack();
-            //dd($exception->getMessage());
+            dd($exception->getMessage());
             abort('404');
         }
 
