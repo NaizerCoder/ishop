@@ -22,6 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'title' => '',
             'color' => ['required', 'regex:/^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/'],
 
         ];
@@ -29,7 +30,6 @@ class UpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'необходимо заполнить поле',
             'color.regex' => 'не верный формат кода цвета',
         ];
     }

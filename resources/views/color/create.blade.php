@@ -27,6 +27,10 @@
                 <form action="{{route('color.store')}}" method="POST" class="w-25">
                     @csrf
                     <div class="form-group mb-3">
+                        <input type="text" class="form-control" name="title" placeholder="название">
+                    </div>
+
+                    <div class="form-group mb-3">
                         <input type="text" class="form-control" name="color" placeholder="код цвета">
                     </div>
                     @error('color')

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Color;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\UpdateRequest;
+use App\Http\Requests\Color\UpdateRequest;
 use App\Models\Color;
 
 class UpdateController extends Controller

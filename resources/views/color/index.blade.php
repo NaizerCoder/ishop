@@ -25,6 +25,7 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
+                    <th scope="col">Название</th>
                     <th scope="col">Код</th>
                     <th scope="col">Цвет</th>
                     <th scope="col">Действие</th>
@@ -33,6 +34,7 @@
                 @foreach($colors as $color)
                     <tbody>
                     <tr>
+                        <td><a href="{{route('color.show',$color->id)}}">{{$color->title}}</a></td>
                         <td><a href="{{route('color.show',$color->id)}}">{{$color->color}}</a></td>
                         <td>
                             <div style="width:15px; height:15px; background-color: {{'#'.$color->color}};"></div>

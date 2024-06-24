@@ -29,6 +29,10 @@
                         @method('patch')
 
                         <div class="form-group mb-3">
+                            <input type="text" class="form-control" name="title" value="{{old('title',$color->title)}}">
+                        </div>
+
+                        <div class="form-group mb-3">
                             <input type="text" class="form-control" name="color" value="{{old('color',$color->color)}}">
                         </div>
 
