@@ -30,12 +30,14 @@ class ProductFilter extends AbstractFilter
 
     protected function colors(Builder $builder, $value)
     {
-        $builder->whereIn('color_id', $value);
+        $builder->whereHas('colors', function ($b) use ($value) {
+            $b->whereIn('color_id', $value);
+        });
     }
 
     protected function price(Builder $builder, $value)
     {
-        $builder->whereBetween($value['from'], $value['to']);
+        $builder->whereBetween('price', $value);
     }
 
     protected function tags(Builder $builder, $value)

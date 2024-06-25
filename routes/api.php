@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'App\Http\Controllers\API\Product'], function(){
 
-	Route::get('/products','IndexController');
+	Route::post('/products','IndexController');
 	Route::get('/products/filters','FilterListController');
 	Route::get('/products/{product}','ShowController');
 
