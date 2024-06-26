@@ -19,4 +19,4 @@ trait Filterable
 
         return $builder;
     }
-} 
+}
