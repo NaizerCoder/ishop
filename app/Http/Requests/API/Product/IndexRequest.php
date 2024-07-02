@@ -26,6 +26,7 @@ class IndexRequest extends FormRequest
             'colors' => '',
             'tags' => '',
             'price' => '',
+            'page' => ''
         ];
     }
 
