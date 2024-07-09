@@ -109,13 +109,13 @@
 
                         <!-- MultiSelect Colors -->
                         <div class="form-group mb-3">
-                            <select class="colors" name="colors[]" multiple="multiple" data-placeholder="Задайте тэг"
+                            <select class="colors" name="colors[]" multiple="multiple" data-placeholder="Цвет"
                                     style="width: 100%;">
                                 @foreach($colors as $color)
                                     <option value="{{$color->id}}"
                                         {{--когда отношения многие ко многим -> обращение к массиву--}}
                                         {{ in_array( $color->id , old('colors',$product->colors->pluck('id')->toArray()) )  ? ' selected' : '' }}
-                                    >{{$color->color}}</option>
+                                    >{{$color->title}}</option>
                                 @endforeach
                             </select>
                         </div>

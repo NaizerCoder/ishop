@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Product;
 
 use App\Http\Resources\Category\CategoryResource;
+use App\Http\Resources\Color\ColorResource;
 use App\Http\Resources\Image\ImageResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -28,7 +29,6 @@ class IndexProductResource extends JsonResource
             'count' => $this->count,
             'is_publish' => $this->is_publish,
             'category' => new CategoryResource($this->category),
-
         ];
     }
 }

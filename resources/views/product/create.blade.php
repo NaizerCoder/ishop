@@ -116,13 +116,13 @@
 
                         <!-- MultiSelect Colors -->
                         <div class="form-group mb-3">
-                            <select class="tags" name="colors[]" multiple="multiple" data-placeholder="Задайте цвет"
+                            <select class="tags" name="colors[]" multiple="multiple" data-placeholder="Цвет"
                                     style="width: 100%;">
                                 @foreach($colors as $color)
                                     <option value="{{$color->id}}"
                                         {{ is_array( old('colors') ) && in_array( $color->id,old('colors') )  ? ' selected' : '' }}
                                     >
-                                        {{$color->color}}
+                                        {{$color->title}}
                                     </option>
                                 @endforeach
                             </select>
