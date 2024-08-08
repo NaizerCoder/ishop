@@ -1,7 +1,5 @@
 @extends('layouts.main')
 @section('content')
-    @extends('layouts.main')
-    @section('content')
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -70,18 +68,35 @@
                         </tr>
 
                         <tr>
-                            <th>Количество</th>
+                            <th>Опубликовано</th>
                             <td>{{$product->is_publish}}</td>
                         </tr>
+
+                        <tr>
+                            <th>Тэги</th>
+                            <td>
+                                @foreach($product->tags as $tag)
+                                   {{$tag->title}} ({{$tag->pivot->pos}})
+                                @endforeach
+
+                            </td>
+                        </tr>
+
                         </tbody>
 
                     </table>
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
-        </section>
 
-    @endsection
+{{--            @dd($product->posTag)--}}
+
+{{--            @foreach($product->posTag as $pos)--}}
+{{--                @dump($pos->title)--}}
+{{--            @endforeach--}}
+
+
+        </section>
 
 @endsection
 

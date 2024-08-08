@@ -11,5 +11,10 @@ class IndexController extends Controller
     {
         $products = Product::orderBy('title','ASC')->get();
         return view('product.index',compact('products'));
+
+//        $product = Product::find(1);
+//        foreach ($product->posTag as $pos) {
+//            echo $pos->pivot->pos;
+//        }
     }
 }

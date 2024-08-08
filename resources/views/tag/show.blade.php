@@ -31,6 +31,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Название</th>
+                            <th scope="col">Продукт</th>
                         </tr>
                         </thead>
 
@@ -38,6 +39,7 @@
                         <tr>
                             <td>{{$tag->id}}</td>
                             <td>{{$tag->title}}</td>
+                            <td>@dd($tag->products)</td>
 
                         </tr>
                         </tbody>

@@ -14,7 +14,7 @@ class Product extends Model
     protected $guarded = [];
 
     public function tags(){
-        return $this->belongsToMany( Tag::class, 'product_tags', 'product_id', 'tag_id');
+        return $this->belongsToMany( Tag::class, 'product_tags', 'product_id', 'tag_id')->withPivot('pos');;
     }
 
     public function colors()
@@ -34,5 +34,9 @@ class Product extends Model
 
     public function images(){
         return $this->hasMany(Image::class, 'product_id','id');
+    }
+
+    public function posTag(){
+        return $this->belongsToMany( Tag::class, 'product_tags')->withPivot('pos');
     }
 }
